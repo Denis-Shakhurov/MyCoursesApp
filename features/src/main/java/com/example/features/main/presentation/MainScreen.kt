@@ -51,9 +51,15 @@ import com.example.core.R
 import com.example.core.ui.theme.Dark
 import com.example.core.ui.theme.DarkGrey
 import com.example.core.ui.theme.Green
+import com.example.core.ui.theme.Grey
+import com.example.core.ui.theme.LightGrey
 import com.example.core.ui.theme.RobotoFontFamily
 import com.example.core.ui.theme.White
 import com.example.domain.model.Course
+import com.example.features.utils.DateFormatter
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.Locale
 
 @Composable
 fun MainScreen(
@@ -205,7 +211,7 @@ fun CourseCard(
                     .fillMaxWidth()
                     .height(114.dp)
                     .clip(RoundedCornerShape(12.dp))
-                    .background(DarkGrey)
+                    .background(Grey)
             ) {
                 Button(
                     modifier = Modifier
@@ -215,7 +221,7 @@ fun CourseCard(
                     onClick = onToggleFavorite,
                     shape = CircleShape,
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = DarkGrey.copy(alpha = 0.7f),
+                        containerColor = LightGrey,
                         contentColor = if (course.hasLike) Green else White
                     ),
                     contentPadding = PaddingValues(0.dp)
@@ -233,9 +239,9 @@ fun CourseCard(
                 ) {
                     Box(
                         modifier = Modifier
-                            .padding(start = 8.dp)
+                            .padding(start = 8.dp, bottom = 4.dp)
                             .clip(RoundedCornerShape(12.dp))
-                            .background(DarkGrey.copy(alpha = 0.7f))
+                            .background(LightGrey)
                             .padding(horizontal = 8.dp, vertical = 4.dp)
                     ) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -257,12 +263,13 @@ fun CourseCard(
 
                     Box(
                         modifier = Modifier
+                            .padding(bottom = 4.dp)
                             .clip(RoundedCornerShape(12.dp))
-                            .background(DarkGrey.copy(alpha = 0.7f))
+                            .background(LightGrey)
                             .padding(horizontal = 8.dp, vertical = 4.dp)
                     ) {
                         Text(
-                            text = " ${course.startDate}",
+                            text = DateFormatter.formatDate(course.startDate),
                             color = White
                         )
                     }
