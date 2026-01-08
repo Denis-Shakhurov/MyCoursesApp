@@ -57,9 +57,6 @@ import com.example.core.ui.theme.RobotoFontFamily
 import com.example.core.ui.theme.White
 import com.example.domain.model.Course
 import com.example.features.utils.DateFormatter
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
-import java.util.Locale
 
 @Composable
 fun MainScreen(
@@ -253,7 +250,7 @@ fun CourseCard(
                             )
                             Spacer(modifier = Modifier.width(4.dp))
                             Text(
-                                text = course.rate.toString(),
+                                text = course.rate,
                                 color = White
                             )
                         }
@@ -308,7 +305,7 @@ fun CourseCard(
                 Text(
                     modifier = Modifier
                         .padding(start = 16.dp),
-                    text = "${course.price}",
+                    text = course.price,
                     style = MaterialTheme.typography.bodyMedium,
                     color = White
                 )

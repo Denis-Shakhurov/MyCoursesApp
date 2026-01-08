@@ -9,8 +9,8 @@ fun CourseDTO.toDomain(): Course {
         id = id,
         title = title,
         description = text,
-        price = price.toDoubleOrNull() ?: 0.0,
-        rate = rate.toDoubleOrNull() ?: 0.0,
+        price = price,
+        rate = rate,
         startDate = startDate,
         publishDate = publishDate,
         hasLike = hasLike

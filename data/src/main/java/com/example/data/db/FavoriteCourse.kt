@@ -8,8 +8,8 @@ data class FavoriteCourse(
     @PrimaryKey val courseId: Int,
     val title: String,
     val description: String,
-    val price: Double,
-    val rate: Double,
+    val price: String,
+    val rate: String,
     val startDate: String,
     val publishDate: String,
     val addedDate: Long = System.currentTimeMillis()
